@@ -1,0 +1,161 @@
+.body {
+    background: url('https://media.giphy.com/media/4N1FZFE5AGO3qrUGkw/giphy.gif') no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 790px;
+    margin: 0;
+    padding: 0;
+  box-sizing: border-box;
+   font-family:Georgia, 'Times New Roman', Times, serif;
+  }
+  .header{
+    background-color: black;
+   
+  }
+  .head{
+    font-size: 50px;
+    font-weight: 800;
+    color:skyblue;
+    
+  
+  }
+  
+  .input-search{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    
+  }
+  .input-search input{
+    display: flex;
+    padding: 15px;
+    font-size: 20px;
+    border-radius: 15px;
+    border: none;
+    border-bottom: 2px black solid;
+    outline: none;
+    width: 50%;
+    font-weight: bolder;
+    
+  
+  }
+  .input-search button{
+   background-color: rgba(244, 249, 246, 0.634);
+   color: rgb(86, 84, 84);
+   border-radius: 5px 25px;
+   margin-left: 10px;
+  cursor: pointer;
+   
+  }
+  .input-search button:hover{
+    background-color: rgba(32, 95, 243, 0.571);
+  }
+  
+  /*-------- error---------- */
+  .error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px; 
+    color:rgb(35, 147, 222) ;
+  }
+  .error .container{
+    border-radius: 20px;
+    padding: 20px; 
+    background-color: aliceblue;
+  }
+  .errimg{
+    height: 300px;
+    mix-blend-mode: multiply;
+  }
+  
+  /* -----------search------------ */
+  .serch{
+    font-size: 30px;
+   text-align: center;
+  }
+  
+  /* -----------display weather-------- */
+
+  .city-info{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px; 
+   
+   
+  }
+   .row{
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+   
+  }
+
+
+.col{
+ 
+  display: flex;
+  justify-content: center ;
+  align-items: center;
+  
+
+  
+}
+.box{
+  text-align: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.896),rgba(0, 0, 0, 0.647));
+  border-radius: 20px;
+  padding: 30px;
+  margin: 10px;
+  width: 200px;
+  height: 100px;
+  color: rgb(133, 215, 248);
+  border: 2px solid rgb(44, 190, 248);
+  box-shadow: 2px 2px 5px darkblue;
+  
+}
+.box h2{
+  font-weight: 900;
+  color: white;
+}
+.box h3{
+  align-items: flex-end;
+}
+.row-pic{
+ 
+  color: white;
+}
+
+.wicon{
+  
+  animation:size 1.5s infinite;
+}
+@keyframes size{
+  from{
+    transform: scale(2.5,1);
+  }to{
+    transform: scale(2.5,2.5);
+  }
+}
+
+@media(max-width:450px){
+  .input-search{
+    width: 80%;
+  }
+  .city-info{
+    flex-direction: column;
+    margin: auto;
+    width: 80%;
+  }
+  .row-pic{
+    margin: auto;
+    width: 80%;
+  }
+  
+}
