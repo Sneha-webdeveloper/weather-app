@@ -13,7 +13,7 @@ function Weather() {
   const [data, setData] = useState(null);
   const [error, setError] = useState(false);
 
-  const bg = 'https://th.bing.com/th/id/R.ebadc44231bd8bd99735cd115014615b?rik=Wk96mFZAv%2bQGoA&riu=http%3a%2f%2fi.huffpost.com%2fgen%2f1080582%2fimages%2fo-DC-WEATHER-HEAT-facebook.jpg&ehk=SjzbU%2fnxCDGUeuvusKispiYXkMUF%2bK0xIIaYDOhaZcU%3d&risl=&pid=ImgRaw&r=0'
+  const bg = 'https://cdn.pixabay.com/photo/2020/02/06/15/59/forest-4824759_1280.png'
 
   const fetchData = async () => {
     try {
@@ -23,8 +23,17 @@ function Weather() {
       console.log(response.data);
       setData(response.data);
       setError(false);
+      
     } catch (err) {
-      setError(true);
+      if (err.response && err.response.status === 404) {
+        // City not found error
+        setError(true);
+      } else {
+        // Other errors (e.g., rate limit exceeded)
+        console.error("Weather API Error:", err);
+        setError(true);
+      }
+      setData(null); // Reset data on error
     }
   };
 
@@ -35,16 +44,20 @@ function Weather() {
         setImg(response.data.results);
       })
       .catch((error) => {
-        console.error(error);
+
+        console.error("img api error",error);
         setImg([]); // Reset images on error
       });
   };
 
+
+
   useEffect(() => {
-    if (search) {
+    
+    if(search) { 
       fetchData(); // Fetch weather data when 'search' changes
-      getImg(); // Fetch images based on the entered city
-    }
+      getImg(); }// Fetch images based on the entered city
+    
   }, [search]);
 
   const randomImage = img.length > 0 ? img[Math.floor(Math.random() * img.length)]?.urls?.regular : bg;
